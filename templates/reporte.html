@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- <div>
+        <h1><a href="/">It's coming home!</a></h1>
+    </div> -->
+
+<h2 class="ui center aligned icon header">
+  <i class="circular comment icon"></i>
+  Reporte de comentarios
+</h2>
+
+<div class="ui container">
+<table class="ui basic table">
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Comentario</th>
+      <th>Fecha</th>
+    </tr>
+  </thead>
+  {% for mireviews in mireviews %}
+  <tbody>
+    <tr>
+      <td>{{ mireviews.reviewer }}</td>
+      <td>{{ mireviews.comment }}</td>
+      <td>{{ mireviews.createdTime }}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+
+<br>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="ui container"> 
+
+ <a href="http://agriculture1.newholland.com/lar/es"><img class="ui fluid image" src="/static/images/publicidad2.gif"></a>
+
+  <div id="preference-box" class="ui segment container grid">
+    <div class="two wide column">
+    </div>
+    <div class="nine wide column">
+      
+      <!-- Comments/Reviews -->
+        <div class="ui comments">
+          <h3 class="ui dividing header">Comments&nbsp;&nbsp;&nbsp;&nbsp;<i id="review-new-button" class="edit icon link"></i></h3>
+
+          <form id="review-form" class="ui form">  {% csrf_token %}
+            <div class="field">
+              <div class="two fields">
+                <div class="field">
+                  <input type="text" name="review-name" placeholder="Your Name">
+                </div>
+                <div class="field" style="display:none">
+                  <i id="star-1" class="empty star icon link review-star" onclick="clickStar(1)"></i>
+                  <i id="star-2" class="empty star icon link review-star" onclick="clickStar(2)"></i>
+                  <i id="star-3" class="empty star icon link review-star" onclick="clickStar(3)"></i>
+                  <i id="star-4" class="empty star icon link review-star" onclick="clickStar(4)"></i>
+                  <i id="star-5" class="empty star icon link review-star" onclick="clickStar(5)"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Comment -->
+            <div class="field">
+              <input type="text" name="review-stars" style="display:none">
+              <textarea id="review-comment" rows="3" placeholder="Your comment here ..."></textarea>
+            </div>
+
+            <!-- Errors -->
+            <div class="ui error message"></div>
+
+            <!-- Submit button -->
+            <div class="inline fields">
+              <div class="ui submit positive button"><i class="icon edit"></i> Submit</div>
+            </div>
+          </form>
+
+          <!-- List of comments -->
+<!--          <span id="comments">
+          </span>
+-->
+        </div>
+
+    </div>
+    
+  </div>
+
+</div>
+{% endblock %}
+
+{% block js-files %}
+  <script src="{% static "js/about.js" %}"></script>
+  <script>
+    $(window).load(function() {
+      $('.menu .item')
+    .tab();
+    });
+  </script>  
+{% endblock %}
+

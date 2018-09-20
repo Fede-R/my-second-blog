@@ -1,0 +1,54 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AgroEX</title>
+  <link rel="icon" type="image/png" href="/static/images/logo_pink.png"/>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0"> 
+  <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body class="text-center">
+
+  <!-- NAVBAR Brand -->
+
+  <nav class="navbar navbar-dark bg-success">
+    <span class="navbar-brand mb-0 h1"> <a href="/"><span style="color:white"> <i class="fas fa-arrow-left"></i> </a>  Iniciar sesión</span> </span>
+  </nav>
+
+  <!-- IMAGEN AGROEX -->
+      <br>
+      <img class="mb-4" src="/static/images/logo_pink.png"/ alt="" width="130" height="140">
+      <div class="container">
+        <h2 class="text-center font-weight-light">Inicia sesión en AgroEX</h2> 
+        <br>
+      </div> 
+  
+  {% block content %}
+    {% if form.errors %}
+        <p>El nombre de usuario y la contraseña que ingresaste no coinciden con nuestros registros. Por favor, revisa e inténtalo de nuevo.</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+        <div class="container">
+        Usuario <span style="color:white">------</span> <i class="fas fa-user"></i> 
+            {{ form.username }} 
+        </div>    
+        <div class="container">
+        Contraseña <span style="color:white">-</span> <i class="fas fa-lock"></i>
+            {{ form.password }}
+        </div>
+        <br>
+        <input type="submit" value="Iniciar sesion" />
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+{% endblock %}
+
+
+  <script src="{% static "js/jquery2.2.2.min.js" %}"></script>
+  <script src="{% static "js/bootstrap.min.js" %}"></script>
+</body>
+</html>
