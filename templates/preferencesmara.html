@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block css-files %}
-  <link rel="stylesheet" href="{% static "css/preferences.css" %}"/>
+  <link rel="stylesheet" href="{% static "css/preferencesmara.css" %}"/>
 {% endblock %}
 
 {% block content %}
@@ -24,37 +24,37 @@
 
     <!-- sintoma-aa -->
     <div class="inline fields">
-      <label class="four wide field">¿Hay perforaciones en la hoja?</label>  
+      <label class="four wide field">¿En qué estado se encuentra la raíz?</label>  
       <div class="three wide field">
         <div class="ui radio checkbox">
-          <input type="radio" name="sintoma-aa" tabindex="0" value="TRUE" class="hidden">
-          <label>Sí</label> 
+          <input type="radio" name="sintoma-aa" tabindex="0" value="normal" class="hidden">
+          <label>Normal</label> 
         </div>
       </div>
       <div class="three wide field">
         <div class="ui radio checkbox">
-          <input type="radio" name="sintoma-aa" tabindex="0" value="FALSE" class="hidden">
-          <label>No</label>
+          <input type="radio" name="sintoma-aa" tabindex="0" value="podrida" class="hidden">
+          <label>Podrida</label>
         </div>
       </div>
     </div>
 
     <!-- sintoma-bb -->
     <div class="inline fields">
-      <label class="four wide field">¿De qué color son las manchas?</label> 
+      <label class="four wide field">¿Dónde están distribuidas las lesiones?</label> 
       <div class="three wide field">
         <div class="ui radio checkbox">
-          <input type="radio" name="sintoma-bb" tabindex="0" value="ceniza" class="hidden">
-          <label>Ceniza</label> 
+          <input type="radio" name="sintoma-bb" tabindex="0" value="tallo" class="hidden">
+          <label>En el tallo</label> 
         </div>
       </div>
       <div class="three wide field">
         <div class="ui radio checkbox">
-          <input type="radio" name="sintoma-bb" tabindex="0" value="blanco" class="hidden">
-          <label>Blanco</label> 
+          <input type="radio" name="sintoma-bb" tabindex="0" value="raiz" class="hidden">
+          <label>En la raíz</label> 
         </div>
       </div>
-      <div class="three wide field">
+<!--      <div class="three wide field">
         <div class="ui radio checkbox">
           <input type="radio" name="sintoma-bb" tabindex="0" value="marron" class="hidden">
           <label>Marron</label> 
@@ -65,25 +65,25 @@
           <input type="radio" name="sintoma-bb" tabindex="0" value="no mancha" class="hidden">
           <label>No mancha</label> 
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- sintoma-cc -->
     <div class="inline fields">
-      <label class="four wide field">¿Qué formas tienen las manchas?</label> 
+      <label class="four wide field">¿Qué formas tienen las lesiones?</label> 
       <div class="three wide field">
         <div class="ui radio checkbox">
-          <input type="radio" name="sintoma-cc" tabindex="0" value="rectangular" class="hidden">
-          <label>Rectangulares</label> 
+          <input type="radio" name="sintoma-cc" tabindex="0" value="estrecha u oval" class="hidden">
+          <label>Estrechas u ovales</label> 
         </div>
       </div>
       <div class="three wide field">
         <div class="ui radio checkbox">
-          <input type="radio" name="sintoma-cc" tabindex="0" value="circular" class="hidden">
-          <label>Circulares</label> 
+          <input type="radio" name="sintoma-cc" tabindex="0" value="irregular" class="hidden">
+          <label>Irregulares</label> 
         </div>
       </div>
-      <div class="three wide field">
+<!--      <div class="three wide field">
         <div class="ui radio checkbox">
           <input type="radio" name="sintoma-cc" tabindex="0" value="irregular" class="hidden">
           <label>Irregular</label> 
@@ -94,30 +94,30 @@
           <input type="radio" name="sintoma-cc" tabindex="0" value="no forma mancha" class="hidden">
           <label>No hay manchas</label> 
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- sintoma-ee -->
     <div class="inline fields">
-      <label class="four wide field">¿Dónde están distribuidas las lesiones?</label> 
+      <label class="four wide field">¿Hay marchitez en la parte aérea?</label> 
       <div class="three wide field">
         <div class="ui radio checkbox">
-          <input type="radio" name="sintoma-ee" tabindex="0" value="en nervadura" class="hidden">
-          <label>Por las nervaduras</label> 
+          <input type="radio" name="sintoma-ee" tabindex="0" value="si marchitez" class="hidden">
+          <label>Sí</label> 
         </div>
       </div>
       <div class="three wide field">
         <div class="ui radio checkbox">
-          <input type="radio" name="sintoma-ee" tabindex="0" value="en cogollo" class="hidden">
-          <label>En el cogollo</label> 
+          <input type="radio" name="sintoma-ee" tabindex="0" value="no marchitez" class="hidden">
+          <label>No</label> 
         </div>
       </div>
-      <div class="three wide field">
+<!--      <div class="three wide field">
         <div class="ui radio checkbox">
           <input type="radio" name="sintoma-ee" tabindex="0" value="dispersa" class="hidden">
           <label>Dispersas</label> 
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- sintoma-dd -->
@@ -141,8 +141,8 @@
     <div class="ui error message"></div>
 
     <!-- Submit button -->
-    <div class="inline fields">
-      <div id="submit-button" class="ui submit teal button">Analizar planta</div>
+    <div class="inline fields"> 
+      <div id="submit-button" class="ui submit positive button">Analizar planta</div>
     </div>
 
   </form>
@@ -171,16 +171,15 @@
   <!-- Header -->
   <div id="modal-header" class="ui content">
     <div class="ui grid">
-      <div class="ui twelve wide column">
+      <div class="ui sixteen wide column">
         <h2 id="detail-name" class="ui header">Name of the dish</h2>
-        <div id="detail-tags">
+        <div id="detail-tags" style="display:none"> <!-- NUEVO DISPLAY NONE 3 -->
           <a class="ui tag label">New</a>
           <a class="ui tag label">New</a>
           <a class="ui tag label">New</a>
         </div>
-      </div>
-      <div class="ui right aligned four wide column">
-        <p id="detail-rating" class="ui header">Rating: </p>
+
+<!--        <p id="detail-rating" class="ui header">Rating: </p> -->
         <div class="ui right aligned">
           <i id="header-star-1" class="empty star icon review-star"></i>
           <i id="header-star-2" class="empty star icon review-star"></i>
@@ -188,7 +187,13 @@
           <i id="header-star-4" class="empty star icon review-star"></i>
           <i id="header-star-5" class="empty star icon review-star"></i>
         </div>
+
+
+
       </div>
+<!--      <div class="ui right aligned four wide column">
+        
+      </div> -->
     </div>
     <div class="ui clearing divider"></div>
   </div>
@@ -198,29 +203,27 @@
     <div class="ui grid">
 
       <!-- Images -->
-      <div class="eight wide column" id="modal-images">
+      <div class="sixteen wide column" id="modal-images">
         <img class="arrows" id="right-arr" src="/static/images/arrow-right.png">
         <img class="arrows" id="left-arr" src="/static/images/arrow-left.png">
 
         <span id="modal-image-tabs">
           <div class="ui bottom attached tab active" data-tab="first">
-            <img src="/static/images/dishes/17_1_square.jpeg" style="width:100%"/>
+            <img src="/static/images/dishesmara/17_1_square.jpeg" style="width:100%"/>
           </div>
         </spans>
 
       </div>
 
-      <!-- Right Things -->
-      <div class="eight wide column" id="review-maincontent" >
-        <!-- Description -->
+      <!-- Description -->
         <div class="comments">
-          <div class="ui dividing header">Description</div>
+          <div class="ui dividing header">Tratamiento</div>
           <p id="detail-description">This is a text.</p>
         </div>
 
         <!-- Comments/Reviews -->
         <div class="ui comments">
-          <h3 class="ui dividing header">Comments&nbsp;&nbsp;&nbsp;&nbsp;<i id="review-new-button" class="edit icon link"></i></h3>
+          <h3 class="ui dividing header">Calificar&nbsp;&nbsp;&nbsp;&nbsp;<i id="review-new-button" class="check icon link"></i></h3>
 
           <form id="review-form" class="ui form">  {% csrf_token %}
             <div class="field">
@@ -249,7 +252,7 @@
 
             <!-- Submit button -->
             <div class="inline fields">
-              <div class="ui submit teal button"><i class="icon edit"></i> Submit</div>
+              <div class="ui submit positive button"><!-- <i class="icon edit"></i> --> Calificar</div>
             </div>
           </form>
 
@@ -258,7 +261,13 @@
           </span>-->
 
         </div>
-      </div>
+
+
+      <!-- Right Things -->
+<!--      <div class="eight wide column" id="review-maincontent" >
+
+        
+      </div> -->
     </div>
   </div>
 
@@ -267,7 +276,7 @@
 
 
 {% block js-files %}
-  <script src="{% static "js/preferences.js" %}"></script>
+  <script src="{% static "js/preferencesmara.js" %}"></script>
   <script>
     $(window).load(function() {
       $('.menu .item')

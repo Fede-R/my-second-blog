@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- <div>
+        <h1><a href="/">It's coming home!</a></h1>
+    </div> -->
+<div id="outer-box">
+<div id="preference-box" class="ui existing segment container grid">
+<div class="two wide column"></div>
+
+<form method="post">
+  {% csrf_token %}
+
+<h2 class="ui header">
+      <i class="trash icon"></i>
+      <div class="content">
+        Eliminar enfermedad
+      </div>
+</h2>
+
+<div class="ui divider"></div>
+  <h3>¿Está seguro de eliminar {{ enfermedadmaramaiz.name }}?</h3>
+ 
+  
+  <button type="submit" class="ui negative button">Eliminar</button>
+  <a href= "{% url 'accionesmaraPage' %}"><button type="button" class="ui button">Cancelar</button></a> <!-- Cuidado con este boton que GUARDA EL CAMBIO REALIZADO -->
+
+   <div>
+       <h3><span style="color:white"> It's coming home! </span></h3> 
+   </div> 
+
+
+</form>
+</div>
+</div>
+
+{% endblock %}

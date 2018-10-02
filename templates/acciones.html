@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- <div>
+        <h1><a href="/">It's coming home!</a></h1>
+    </div> -->
+
+<h2 class="ui center aligned icon header">
+  <i class="circular edit icon"></i>
+  Acciones
+</h2>
+
+<div class="ui container">
+<table class="ui basic table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Enfermedad</th>
+      <th>Síntomas</th>
+      <th>Tipo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  {% for enfermedadmaiz in enfermedadmaiz %}
+  <tbody>
+    <tr>
+      <td>{{ enfermedadmaiz.id }}</td>
+      <td>{{ enfermedadmaiz.name }}</td>
+      <td>{{ enfermedadmaiz.description }}</td>
+      <td>{{ enfermedadmaiz.planta }}</td>
+      <td> <a href= "{% url 'enfermedadmaiz_editar' enfermedadmaiz.id %}"><button class="ui blue button"><i class="pencil icon"></i>Modificar</button></a> <!-- </td>  Modificar -->
+      <!-- <td> --> <a href= "{% url 'enfermedadmaiz_eliminar' enfermedadmaiz.id %}"><button class="ui red button"><i class="trash icon"></i>Eliminar</button></a> </td> <!-- Eliminar -->
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+
+<br>
+{% endblock %}

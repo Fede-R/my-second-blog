@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block css-files %}
+    <link rel="stylesheet" href="{% static "css/newmaes.css" %}"/>
+{% endblock %}
+
+{% block content %}
+<div id="preference-box" class="ui segment container grid"  style="display:none;">
+  <div class="two wide column"></div>
+  <form id="form-nuevo-enfermedad" class="ui form twelve wide column"> {% csrf_token %}
+
+    <h4 class="ui dividing header">Por favor, ingrese la nueva enfermedad de la planta y sus síntomas</h4>
+
+    <!-- dish name -->
+    <div class="inline fields">
+      <label class="four wide field">Nombre de la enfermedad</label>
+      <div class="six wide field">
+        <input type="text" name="enfermedad-name" placeholder="Nueva enfermedad">
+      </div>
+    </div>
+
+    <!-- Dropdown planta -->
+    <div class="inline fields" style="display:none;">
+      <label class="four wide field">Elige la planta</label>
+      <select class="ui search dropdown" name="planta">
+        <option value="maiz">Maíz</option> 
+      </select>
+    </div>
+
+    <!-- sintoma-aa -->
+    <div class="inline fields">
+      <label class="four wide field">¿Hay coloración extraña en los entrenudos?</label> <!-- Do you want vegetarian food? --> 
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-aa" tabindex="0" value="TRUE" class="hidden">
+          <label>Sí</label> <!-- Yes -->
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-aa" tabindex="0" value="FALSE" class="hidden">
+          <label>No</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- sintoma-bb -->
+    <div class="inline fields">
+      <label class="four wide field">¿Cómo se encuentran los granos?</label> <!-- Do you want vegetarian food? -->
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="rojizo" class="hidden">
+          <label>Rojizos</label> <!-- Soup -->
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="moho verde azulado" class="hidden">
+          <label>Con moho verde azulado</label> <!-- Dry Food -->
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="moho negro" class="hidden">
+          <label>Con moho negro</label> <!-- Dry Food -->
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="normal" class="hidden">
+          <label>Normal</label> <!-- Dry Food -->
+        </div>
+      </div>
+    </div>
+
+    <!-- sintoma-cc -->
+    <div class="inline fields">
+      <label class="four wide field">¿El síntoma ha ido empeorando conforme al crecimiento de la planta?</label> <!-- Do you want vegetarian food? -->
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-cc" tabindex="0" value="si empeora" class="hidden">
+          <label>Si</label> <!-- No Spicy -->
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-cc" tabindex="0" value="no empeora" class="hidden">
+          <label>No</label> <!-- A Bit Spicy -->
+        </div>
+      </div>
+<!--      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-cc" tabindex="0" value="irregular" class="hidden">
+          <label>Irregular</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-cc" tabindex="0" value="no forma mancha" class="hidden">
+          <label>No hay manchas</label> 
+        </div>
+      </div> -->
+    </div>
+    
+    <!-- Description -->
+    <div class="inline fields">
+      <label class="four wide field">Tratamiento a seguir</label>
+      <div class="eleven wide field"><textarea rows="3" id="description"></textarea></div>
+    </div>
+
+    <!-- upload image button -->
+    <div class="inline fields">
+      <label class="four wide field">Agregar imagen de la planta infectada</label>
+      <div class="ui icon big button" id="file-upload">
+        <i class="upload icon"></i>
+      </div>
+      <input type="file" id="hidden-file-upload" style="display: none">
+    </div>
+
+    <!-- output to preview images -->
+    <div class="inline fields">
+      <div class="four wide field"></div>
+      <div id="list" class="inline fields"></div>
+      <input id="images" type="text" name="images" style="display: none">
+    </div>
+
+    <!-- Errors -->
+    <div class="ui error message"></div>
+
+    <!-- Submit button -->
+    <div class="inline fields">
+      <div id="submit-button" class="ui submit positive button">Agregar</div>
+    </div>
+
+  </form>
+</div>
+{% endblock %}
+
+{% block js-files %}
+  <script src="{% static "js/newmaes.js" %}"></script>
+{% endblock %}

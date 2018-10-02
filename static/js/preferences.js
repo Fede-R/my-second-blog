@@ -15,14 +15,14 @@ var values = {'sintomaBB': ['ceniza', 'blanco', 'marron', 'no mancha'],
 //              'carbLevel': ['low carb', 'normal carb', 'high carb']
             };
 var changableData = ['sintomaAA', 'sintomaBB', 'sintomaCC', 'sintomaEE', 'sintomaDD'];
-var cardColors = ["red", "orange", "yellow", "olive", "green", "teal", "blue", "violet", "purple", "pink", "brown", "grey", "black"];
+var cardColors = ["grey", "black", "yellow", "olive", "green", "teal", "blue", "violet", "purple", "pink", "brown", "red", "orange"];
 var numColors = cardColors.length;
 
 
 
 // Preference button clicked
 $("#preference-button").on("click", function() {
-  $('#outer-box').transition('slide down');
+  $('#outer-box').transition('scale'); //Antes era slide down
 })
 
 
@@ -30,8 +30,8 @@ $("#preference-button").on("click", function() {
 $( document ).ready(function() {
   $("#preference-link").hide();
   $("#preference-button").show();
-  $('#outer-box').transition('slide down');
-  setTimeout(function(){ saySomething(true, "Hello, how are you today?"); }, 500);
+  $('#outer-box').transition('scale'); //Antes era slide down
+  setTimeout(function(){ saySomething(true, "Bienvenido"); }, 500);
 });
 
 
@@ -108,12 +108,12 @@ function submitForm() {
       if (data.length == 0) {
         saySomething(true, 'Disculpe, no hay resultados');
       } else {
-        $('#outer-box').transition('slide down');
+        $('#outer-box').transition('scale'); //Antes era slide down
         renderCards(data);
       }
     },
     error: function() {
-      saySomething(true, "Sorry some unexpected errors occured :()")
+      saySomething(true, "Ocurrió un error, disculpe")
   }});
 }
 
@@ -143,10 +143,10 @@ function renderCards(data) {
   $("#enfermedad-cards").html(content);
   // show cards
   $('.enfermedad-card').transition({
-    animation : 'horizontal flip',
-    interval  : 140
+    animation : 'horizontal flip', // Antes era horizontal flip
+    interval  : 5000 //Antes era 140. Este funciona bien en smartphone, pero no en pc
   })
-  saySomething(false, "You can click the dishes for more information!")
+  saySomething(false, "Diagnóstico generado")
 }
 
 
@@ -231,7 +231,7 @@ function clickCard(id) {
       showComments(data);
     },
     error: function() {
-      saySomething(true, "Sorry some unexpected errors occured :()")
+      saySomething(true, "Ocurrió un error, disculpe")
   }});
   // Show
   $("#modal-card-detail").modal('show');
@@ -269,7 +269,7 @@ function showComments(data) {
 
 // Show the new review form
 $("#review-new-button").click(function() {
-  $("#review-form").transition('slide down');
+  $("#review-form").transition('scale'); //Antes era slide down
 });
 
 
@@ -307,14 +307,14 @@ $("#review-form").form({
       identifier: 'review-stars',
       rules: [{
         type    : 'empty',
-        prompt  : 'Please rate the dish'
+        prompt  : 'Por favor, califica el diagnóstico'
       }]
     }
 }, {
   onSuccess: function() {
     submitReview();
     // Reset Form
-    $("#review-form").transition('slide down');
+    $("#review-form").transition('scale'); //Antes era slide down
     clickStar(0);
     $("#review-form").form('reset');
     return false;

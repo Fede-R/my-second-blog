@@ -10,29 +10,24 @@
   <div class="two wide column"></div>
   <form id="form-nuevo-enfermedad" class="ui form twelve wide column"> {% csrf_token %}
 
-    <h4 class="ui dividing header">Hello! Thank you so much for helping enrich our system :)</h4>
+    <h4 class="ui dividing header">Por favor, ingrese la nueva enfermedad de la planta y sus síntomas</h4>
 
     <!-- dish name -->
     <div class="inline fields">
-      <label class="four wide field">What is the name of the dish?</label>
+      <label class="four wide field">Nombre de la enfermedad</label>
       <div class="six wide field">
-        <input type="text" name="enfermedad-name" placeholder="Your Dish">
+        <input type="text" name="enfermedad-name" placeholder="Nueva enfermedad">
       </div>
     </div>
 
-    <!-- Cuisine -->
-    <div class="inline fields">
+    <!-- Dropdown planta -->
+    <div class="inline fields" style="display:none;">
       <label class="four wide field">Elige la planta</label>
       <select class="ui search dropdown" name="planta">
-        <option value="">Select Cuisine</option>
-        <option value="soja">Soja</option>
-        <option value="maiz">Maíz</option>
-        <option value="trigo">Trigo</option>
-<!--        <option value="korean">Korean Cuisine</option>
-        <option value="thailand">Thailand Cuisine</option>
-        <option value="malay">Malaysian Cuisine</option>
-        <option value="vietnamese">Vietnamese Cuisine</option>
-        <option value="western">Western Cuisine</option> -->
+  <!--  <option value="">Select Cuisine</option>
+        <option value="soja">Soja</option> -->
+        <option value="maiz">Maíz</option> 
+   <!-- <option value="trigo">Trigo</option> -->
       </select>
     </div>
 
@@ -274,13 +269,13 @@
 -->
     <!-- Description -->
     <div class="inline fields">
-      <label class="four wide field">Could you give some short description about the dish?</label>
+      <label class="four wide field">Tratamiento a seguir</label>
       <div class="eleven wide field"><textarea rows="3" id="description"></textarea></div>
     </div>
 
     <!-- upload image button -->
     <div class="inline fields">
-      <label class="four wide field">Could you upload some images of the dish?</label>
+      <label class="four wide field">Agregar imagen de la planta infectada</label>
       <div class="ui icon big button" id="file-upload">
         <i class="upload icon"></i>
       </div>
@@ -299,7 +294,7 @@
 
     <!-- Submit button -->
     <div class="inline fields">
-      <div id="submit-button" class="ui submit teal button">Submit</div>
+      <div id="submit-button" class="ui submit positive button">Agregar</div>
     </div>
 
   </form>

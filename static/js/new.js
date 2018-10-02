@@ -4,8 +4,8 @@ var numberOfValidatedFile = 0;
 
 // Show form
 $( document ).ready(function() {
-  $('#preference-box').transition('slide down');
-  setTimeout(function(){ saySomething(false, "Welcome welcome, you can give the dish detail below :)"); }, 500);
+  $('#preference-box').transition('scale'); //Antes era slide down
+  setTimeout(function(){ saySomething(false, "Gracias por enriquecer a AgroEX"); }, 500);
 });
 
 // Fake file-upload-button clicked
@@ -40,7 +40,7 @@ $("#hidden-file-upload").on("change", function(e) {
     })(f);
     reader.readAsDataURL(f);
   } else {
-    saySomething(true, "Sorry you cannot upload too many images!")
+    saySomething(true, "Disculpe, no puede publicar tantas imágenes")
   }
 })
 
@@ -71,7 +71,7 @@ $("#form-nuevo-enfermedad").form({
       identifier: 'enfermedad-name',
       rules: [{
         type   : 'empty',
-        prompt : 'Please enter the dish name'
+        prompt : 'Por favor, ingrese el nombre de la enfermedad de la planta'
       }]
     },
     planta: {
@@ -85,7 +85,7 @@ $("#form-nuevo-enfermedad").form({
       identifier: 'sintoma-aa',
       rules: [{
         type    : 'checked',
-        prompt  : 'Please specify if the food is vegetarian'
+        prompt  : '¿Hay perforaciones en la hoja?'
       }]
     },
  //   sintomaAAA: {
@@ -99,7 +99,7 @@ $("#form-nuevo-enfermedad").form({
       identifier: 'sintoma-cc',
       rules: [{
         type    : 'checked',
-        prompt  : 'Please specify the spicy level'
+        prompt  : '¿Qué formas tienen las manchas?'
       }]
     },
     //sour: {
@@ -113,14 +113,14 @@ $("#form-nuevo-enfermedad").form({
       identifier: 'sintoma-dd',
       rules: [{
         type    : 'checked',
-        prompt  : 'Please specify the sweet level'
+        prompt  : '¿Se presenta acame?'
       }]
     },
     sintomaee: {
       identifier: 'sintoma-ee',
       rules: [{
         type    : 'checked',
-        prompt  : 'Please specify the salty level'
+        prompt  : '¿¿Dónde están distribuidas las lesiones??'
       }]
     },
 //    fat: {
@@ -148,14 +148,14 @@ $("#form-nuevo-enfermedad").form({
       identifier: 'description',
       rules: [{
         type    : 'empty',
-        prompt  : 'Please give some description about the dish'
+        prompt  : 'Por favor, agrega un tratamiento para la cura de la planta'
       }]
     },
     images: {
       identifier: 'images',
       rules: [{
         type    : 'empty',
-        prompt  : 'Please upload at least 1 image of the dish'
+        prompt  : 'Por favor, publica una imagen de la planta'
       }]
     }
 }, {
@@ -164,7 +164,7 @@ $("#form-nuevo-enfermedad").form({
     return false;
   },
   onFailure: function() {
-    saySomething(true, "Opss, there are some errors :(")
+    saySomething(true, "Ocurrió un error, disculpe")
     return false;
   }
 });
@@ -198,7 +198,7 @@ function submitForm() {
       removeAllFiles();
       $("#form-nuevo-enfermedad").form("reset");
       $("#form-nuevo-enfermedad").removeClass("loading");
-      saySomething(true, "Thanks for the dish. I am gonna get fat <3");
+      saySomething(true, "Gracias por enriquecer a AgroEX");
     },
     error: function() {
 

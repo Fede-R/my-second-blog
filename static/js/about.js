@@ -26,14 +26,14 @@ $("#review-form").form({
       identifier: 'review-name',
       rules: [{
         type   : 'empty',
-        prompt : 'Please enter name'
+        prompt : 'Ingrese su nombre'
       }]
     },
     reviewComment: {
       identifier: 'review-comment',
       rules: [{
         type    : 'empty',
-        prompt  : 'Please give some comment'
+        prompt  : 'Deja un comentario'
       }]
     },
 //    reviewStars: {

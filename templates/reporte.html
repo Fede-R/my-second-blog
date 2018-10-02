@@ -16,6 +16,7 @@
 <table class="ui basic table">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Usuario</th>
       <th>Comentario</th>
       <th>Fecha</th>
@@ -24,6 +25,7 @@
   {% for mireviews in mireviews %}
   <tbody>
     <tr>
+      <td>{{ mireviews.id }}</td>
       <td>{{ mireviews.reviewer }}</td>
       <td>{{ mireviews.comment }}</td>
       <td>{{ mireviews.createdTime }}</td>

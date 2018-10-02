@@ -13,13 +13,13 @@
       
       <!-- Comments/Reviews -->
         <div class="ui comments">
-          <h3 class="ui dividing header">Comments&nbsp;&nbsp;&nbsp;&nbsp;<i id="review-new-button" class="edit icon link"></i></h3>
+          <h3 class="ui dividing header">Comentar&nbsp;&nbsp;&nbsp;&nbsp;<i id="review-new-button" class="comment icon link"></i></h3>
 
           <form id="review-form" class="ui form">  {% csrf_token %}
             <div class="field">
               <div class="two fields">
                 <div class="field">
-                  <input type="text" name="review-name" placeholder="Your Name">
+                  <input type="text" name="review-name" placeholder="Nombre">
                 </div>
                 <div class="field" style="display:none">
                   <i id="star-1" class="empty star icon link review-star" onclick="clickStar(1)"></i>
@@ -34,7 +34,7 @@
             <!-- Comment -->
             <div class="field">
               <input type="text" name="review-stars" style="display:none">
-              <textarea id="review-comment" rows="3" placeholder="Your comment here ..."></textarea>
+              <textarea id="review-comment" rows="3" placeholder="Escribe tu comentario"></textarea>
             </div>
 
             <!-- Errors -->
@@ -42,7 +42,7 @@
 
             <!-- Submit button -->
             <div class="inline fields">
-              <div class="ui submit positive button"><i class="icon edit"></i> Submit</div>
+              <div class="ui submit positive button"><!-- <i class="icon edit"></i>--> Enviar</div>
             </div>
           </form>
 

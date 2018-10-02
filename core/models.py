@@ -68,3 +68,83 @@ class Mireview(models.Model):
             'reviewer: ' + self.reviewer + '\n' +\
             'comment: ' + self.comment + '\n' +\
             'createdTime: ' + str(self.createdTime) + '\n'
+
+
+class Enfermedadmaes(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.TextField()
+    images = models.IntegerField()
+    planta = models.CharField(max_length=50)
+    sintomaAA = models.CharField(max_length=50)
+    sintomaBB = models.CharField(max_length=50)
+    sintomaCC = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return 'ID: '+ str(self.id) + '\n' +\
+            'name: ' + self.name + '\n' +\
+            'description: ' + self.description + '\n' +\
+            'images: ' + str(self.images) + '\n' +\
+            'planta: ' + self.planta + '\n' +\
+            'sintomaAA: ' + self.sintomaAA + '\n' +\
+            'sintomaBB: ' + self.sintomaBB + '\n' +\
+            'sintomaCC: ' + self.sintomaCC + '\n'  
+
+
+class Enfermedadmara(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.TextField()
+    images = models.IntegerField()
+    planta = models.CharField(max_length=50)
+    sintomaAA = models.CharField(max_length=50)
+    sintomaBB = models.CharField(max_length=50)
+    sintomaCC = models.CharField(max_length=50)
+    sintomaDD = models.CharField(max_length=50)
+    sintomaEE = models.CharField(max_length=50)
+
+    def __str__(self):
+        return 'ID: '+ str(self.id) + '\n' +\
+            'name: ' + self.name + '\n' +\
+            'description: ' + self.description + '\n' +\
+            'images: ' + str(self.images) + '\n' +\
+            'planta: ' + self.planta + '\n' +\
+            'sintomaAA: ' + self.sintomaAA + '\n' +\
+            'sintomaBB: ' + self.sintomaBB + '\n' +\
+            'sintomaCC: ' + self.sintomaCC + '\n' +\
+            'sintomaDD: ' + self.sintomaDD + '\n' +\
+            'sintomaEE: ' + self.sintomaEE + '\n' 
+
+
+class Reviewmaes(models.Model):
+    enfermedadName = models.CharField(max_length=50)
+    enfermedadId = models.IntegerField()
+    comment = models.TextField()
+    reviewer = models.CharField(max_length=50)
+    stars = models.IntegerField()
+    createdTime =  models.DateField(auto_now=True, auto_now_add=False)
+
+    def __str__(self):
+        return 'ID: '+ str(self.id) + '\n' +\
+            'enfermedad-name: ' + self.enfermedadName + '\n' +\
+            'enfermedad-id: ' + str(self.enfermedadId) + '\n' +\
+            'reviewer: ' + self.reviewer + '\n' +\
+            'comment: ' + self.comment + '\n' +\
+            'stars: ' + str(self.stars) + '\n' +\
+            'createdTime: ' + str(self.createdTime) + '\n'
+
+
+class Reviewmara(models.Model):
+    enfermedadName = models.CharField(max_length=50)
+    enfermedadId = models.IntegerField()
+    comment = models.TextField()
+    reviewer = models.CharField(max_length=50)
+    stars = models.IntegerField()
+    createdTime =  models.DateField(auto_now=True, auto_now_add=False)
+
+    def __str__(self):
+        return 'ID: '+ str(self.id) + '\n' +\
+            'enfermedad-name: ' + self.enfermedadName + '\n' +\
+            'enfermedad-id: ' + str(self.enfermedadId) + '\n' +\
+            'reviewer: ' + self.reviewer + '\n' +\
+            'comment: ' + self.comment + '\n' +\
+            'stars: ' + str(self.stars) + '\n' +\
+            'createdTime: ' + str(self.createdTime) + '\n'

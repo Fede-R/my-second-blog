@@ -108,5 +108,7 @@ STATICFILES_DIRS = (
 # Environment Variables
 CLIPS_DIR = os.path.join(BASE_DIR, 'clips')
 DISH_IMAGE_DIR = os.path.join(BASE_DIR, 'static/images/dishes')
+DISHMAES_IMAGE_DIR = os.path.join(BASE_DIR, 'static/images/dishesmaes')
+DISHMARA_IMAGE_DIR = os.path.join(BASE_DIR, 'static/images/dishesmara')
 
 LOGIN_REDIRECT_URL = '/'

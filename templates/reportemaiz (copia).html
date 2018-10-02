@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- <div>
+        <h1><a href="/">It's coming home!</a></h1>
+    </div> -->
+
+<h2 class="ui center aligned icon header">
+  <i class="circular leaf icon"></i>
+  Reporte del maíz
+</h2>
+
+<div class="ui container">
+<table class="ui basic table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Enfermedad</th>
+      <th>Síntomas</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  {% for enfermedadmaiz in enfermedadmaiz %}
+  <tbody>
+    <tr>
+      <td>{{ enfermedadmaiz.id }}</td>
+      <td>{{ enfermedadmaiz.name }}</td>
+      <td>{{ enfermedadmaiz.description }}</td>
+      <td>{{ enfermedadmaiz.planta }}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+
+<br>
+{% endblock %}

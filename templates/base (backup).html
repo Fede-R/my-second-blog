@@ -13,8 +13,8 @@
   <link rel="icon" type="image/png" href="/static/images/logo_pink.png"/>
 
   <!--  Fonts 
-  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'> -->
-
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'> 
+  -->
   <!-- Semantic Core CSS -->
   <link rel="stylesheet" href="{% static "css/semantic.min.css" %}"/>
 
@@ -34,25 +34,111 @@
     <!--  Default Navigator Bar -->
     <div class="ui top fixed menu borderless main nav-bar">
       <div class="ui container">
-        <a href="/"><img class="nav-img" src="/static/images/logo2_pink.png"></a>
+<!--        <a href="/"><img class="nav-img" src="/static/images/logo2_pink.png"></a> -->
+
+
+
+        <br> <h2><a href="/"><i class="green arrow left icon link"></i>  <span style="color:green"> Maíz</span></a></h2>
+
+
 
         <div id="notification-box">
-          <div id="the-cat-box">
-            <img id="the-cat" src="/static/images/cat.gif">
-          </div>
+<!--          <div id="the-cat-box">
+            <img id="the-cat" src="/static/images/cat.gif"> 
+          </div> -->
           <div class="ui blue message" id="the-message">Blue</div>
         </div>
 
-
-
         <div class="right item">
-          <div id="preference-button" class="ui inverted red button nav-button" style="display:none">Preference</div>
-          <a id="preference-link" href="/preferences"><button class="ui inverted red button nav-button">Preference</button></a>
-          <a href="/new"><button class="ui inverted red button nav-button">New Dish</button></a>
-          <a href="/about"><button class="ui inverted red button nav-button">About Us</button></a>
+          <div id="preference-button" class="circular ui icon green button nav-button" style="display:none"> <i class="large leaf icon link"></i> </div> <!-- Preference -->
+          <a id="preference-link" href="/preferences"><button class="circular ui icon green button nav-button"> <i class="large leaf icon link"></i> </button></a> <!-- Preference -->
+          <a href="/about"><button class="circular ui icon green button nav-button"> <i class="large comment icon link"></i> </button></a> <!-- About Us -->
+
+{% if user.is_authenticated %}
+
+          <!-- Botones originales. Funcionaban super bien pero fueron cambiados -->
+
+<!--          <a href="/new"><button class="ui inverted red button nav-button">Nueva enfermedad
+          <i class="large icons">
+            <i class="plus icon link"></i>
+             <i class="corner leaf icon"></i>
+          </i>
+          </button></a>   
+          <a href="/reporte"><button class="ui inverted red button nav-button">Reportes
+          <i class="large icons">
+            <i class="chart bar icon link"></i>
+             <i class="corner comment icon"></i>
+          </i>
+          </button></a>
+          <a href="/reportemaiz"><button class="ui inverted red button nav-button">Reportes Maíz
+          <i class="large icons">
+            <i class="chart bar icon link"></i>
+             <i class="corner leaf icon"></i>
+          </i>
+          </button></a>   
+
+-->       <!-- Fin Botones originales -->
+
+<!-- Inicio Nuevo DROPDOWN -->
+
+        <div class="ui floating labeled icon dropdown green button">
+          <i class="user icon"></i>
+          <span class="text">Experto</span>
+          <div class="menu">
+            <a href="/new"><div class="item">
+              <i class="plus icon"></i>
+              Nueva enfermedad
+            </div></a>
+            <a href="/escritura"><div class="item">
+              <i class="lightbulb icon"></i>
+              Última regla generada
+            </div></a>
+            <div class="divider"></div>
+            <a href="/reportemaiz"><div class="item">
+              <i class="chart bar icon"></i>
+              Reporte de maiz
+            </div></a>
+            <a href="/reporte"><div class="item">
+              <i class="chart bar icon"></i>
+              Reporte de comentarios
+            </div></a>
+            <a href="/reportecalificacionmaiz"><div class="item">
+              <i class="chart bar icon"></i>
+              Reporte de calificaciones
+            </div></a>
+            <div class="divider"></div>          
+            <a href="/acciones"><div class="item">
+              <i class="edit icon"></i>
+              Más acciones
+            </div></a>
+          </div>
+        </div>
+
+<!-- Fin Nuevo DROPDOWN --> 
+
+{% endif %}
+                            
+
+
         </div>
       </div>
     </div>
+{% if user.is_authenticated %}
+<div class="ui secondary segment">
+<!--<div class="ui list">  en lista --> 
+<div class="right floated content">         
+    <div class="item">
+        
+        <p class="top-menu" style="text-align:center;"> <b> Hola {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small> </b> </p>
+        
+    </div>
+</div>          
+<!--</div>  En lista -->
+</div>
+{% endif %}
+
+
+
   {% endblock %}
 
   {% block content %}
