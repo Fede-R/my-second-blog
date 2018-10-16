@@ -80,6 +80,23 @@ def reportePage(request):
     return render(request, 'reporte.html', {'mireviews':mireviews})
 
 @login_required
+def reportePageoct(request):
+    mireviews = Mireview.objects.filter(createdTime__contains='10')
+    return render(request, 'reporteoct.html', {'mireviews':mireviews})
+
+
+@login_required
+def reportePagesep(request):
+    mireviews = Mireview.objects.filter(createdTime__contains='09')
+    return render(request, 'reportesep.html', {'mireviews':mireviews})   
+
+@login_required
+def reportePageago(request):
+    mireviews = Mireview.objects.filter(createdTime__contains='08')
+    return render(request, 'reporteago.html', {'mireviews':mireviews})  
+
+
+@login_required
 def reportemaizPage(request):
     enfermedadmaiz = Enfermedad.objects.all()
     return render(request, 'reportemaiz.html', {'enfermedadmaiz':enfermedadmaiz})

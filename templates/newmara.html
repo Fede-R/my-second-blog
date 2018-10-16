@@ -10,6 +10,13 @@
   <div class="two wide column"></div>
   <form id="form-nuevo-enfermedad" class="ui form twelve wide column"> {% csrf_token %}
 
+    <h2 class="ui header">
+      <i class="plus icon"></i>
+      <div class="content">
+        Agregar enfermedad de maíz por tallo
+      </div>
+    </h2>
+
     <h4 class="ui dividing header">Por favor, ingrese la nueva enfermedad de la planta y sus síntomas</h4>
 
     <!-- dish name -->
@@ -154,7 +161,7 @@
 
     <!-- upload image button -->
     <div class="inline fields">
-      <label class="four wide field">Agregar imagen de la planta infectada</label>
+      <label class="four wide field">Agregar una imagen de la planta infectada</label>
       <div class="ui icon big button" id="file-upload">
         <i class="upload icon"></i>
       </div>

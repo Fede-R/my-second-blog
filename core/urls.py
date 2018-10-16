@@ -46,4 +46,7 @@ urlpatterns = [
     url(r'^api/reviewsmara$', views.processReviewsmara, name='processReviewsmara'),
     url(r'^reportecalificacionmaizmaes/$', views.reportecalificacionmaizmaesPage, name='reportecalificacionmaizmaesPage'),
     url(r'^reportecalificacionmaizmara/$', views.reportecalificacionmaizmaraPage, name='reportecalificacionmaizmaraPage'),
+    url(r'^reporteoct/$', views.reportePageoct, name='reportePageoct'),
+    url(r'^reportesep/$', views.reportePagesep, name='reportePagesep'),
+    url(r'^reporteago/$', views.reportePageago, name='reportePageago'),
 ]

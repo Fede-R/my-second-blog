@@ -8,27 +8,27 @@
     </div> -->
 
 <h2 class="ui center aligned icon header">
-  <i class="circular star icon"></i>
-  Ranking de diagnósticos de maíz por tallo
+  <i class="circular comment icon"></i>
+  Reporte de comentarios
 </h2>
 
 <div class="ui container">
 <table class="ui basic table">
   <thead>
     <tr>
-      <th>Nro.</th>
       <th>ID</th>
-      <th>Enfermedad</th>
-      <th>Calificación</th>
+      <th>Usuario</th>
+      <th>Comentario</th>
+      <th>Fecha</th>
     </tr>
   </thead>
-  {% for reviewmaiz in reviewmaiz %}
+  {% for mireviews in mireviews %}
   <tbody>
     <tr>
-      <td>{{ reviewmaiz.id }}</td>
-      <td>{{ reviewmaiz.enfermedadId }}</td>
-      <td>{{ reviewmaiz.enfermedadName }}</td>
-      <td>{{ reviewmaiz.stars }}</td>
+      <td>{{ mireviews.id }}</td>
+      <td>{{ mireviews.reviewer }}</td>
+      <td>{{ mireviews.comment }}</td>
+      <td>{{ mireviews.createdTime }}</td>
     </tr>
   </tbody>
   {% endfor %}

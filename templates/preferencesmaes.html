@@ -12,6 +12,13 @@
   <div class="two wide column"></div>
   <form id="form-preference" class="ui form twelve wide column"> {% csrf_token %}
 
+    <h2 class="ui header">
+      <i class="flask icon"></i>
+      <div class="content">
+        Maíz por mazorca
+      </div>
+    </h2>
+
     <h4 class="ui dividing header">Por favor, selecciona la planta y sus síntomas</h4>
 
     <!-- Dropdown planta -->
@@ -132,6 +139,7 @@
   <div id="modal-header" class="ui content">
     <div class="ui grid">
       <div class="ui sixteen wide column">
+        <h4>Su planta padece de:</h4>
         <h2 id="detail-name" class="ui header">Name of the dish</h2>
         <div id="detail-tags" style="display:none"> <!-- NUEVO DISPLAY NONE 3 -->
           <a class="ui tag label">New</a>

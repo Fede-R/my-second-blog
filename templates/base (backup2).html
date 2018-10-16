@@ -354,17 +354,6 @@
 
 <!-- FIN DROPDOWN 2-->
 
-{% if user.is_authenticated %}
-
-      
-    <div class="item">  
-        <p class="top-menu" style="text-align:center;"> <b> Hola {{ user.username }} <br> <small>(<a href="{% url 'logout' %}">Log out</a>)</small> </b> </p>
-        
-    </div>
-      
-
-{% endif %}
-
 {% endif %}
                             
 
@@ -372,7 +361,19 @@
         </div>
       </div>
     </div>
-<br>
+{% if user.is_authenticated %}
+<div class="ui secondary segment">
+<!--<div class="ui list">  en lista --> 
+<div class="right floated content">         
+    <div class="item">
+        
+        <p class="top-menu" style="text-align:center;"> <b> Hola {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small> </b> </p>
+        
+    </div>
+</div>          
+<!--</div>  En lista -->
+</div>
+{% endif %}
 
 
 

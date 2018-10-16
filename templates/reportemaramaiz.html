@@ -7,19 +7,27 @@
         <h1><a href="/">It's coming home!</a></h1>
     </div> -->
 
-<h2 class="ui center aligned icon header">
+<!-- <h2 class="ui center aligned icon header">
   <i class="circular leaf icon"></i>
   Reporte del maíz por raiz
 </h2>
+-->
 
 <div class="ui container">
+
+<h2 class="ui header">
+  <img class="ui image" src="/static/images/maiztab.jpg">
+  <div class="content">
+    Enfermedades del maíz por tallo
+  </div>
+</h2>
+
 <table class="ui basic table">
   <thead>
     <tr>
       <th>ID</th>
       <th>Enfermedad</th>
-      <th>Síntomas</th>
-      <th>Tipo</th>
+      <th>Tratamiento</th>
     </tr>
   </thead>
   {% for enfermedadmaramaiz in enfermedadmaramaiz %}
@@ -28,7 +36,6 @@
       <td>{{ enfermedadmaramaiz.id }}</td>
       <td>{{ enfermedadmaramaiz.name }}</td>
       <td>{{ enfermedadmaramaiz.description }}</td>
-      <td>{{ enfermedadmaramaiz.planta }}</td>
     </tr>
   </tbody>
   {% endfor %}

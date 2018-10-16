@@ -9,7 +9,7 @@
 
 <h2 class="ui center aligned icon header">
   <i class="circular edit icon"></i>
-  Acciones por mazorca
+  Acciones para maíz por mazorca
 </h2>
 
 <div class="ui container">
@@ -18,8 +18,7 @@
     <tr>
       <th>ID</th>
       <th>Enfermedad</th>
-      <th>Síntomas</th>
-      <th>Tipo</th>
+      <th>Tratamiento</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -29,9 +28,8 @@
       <td>{{ enfermedadmaesmaiz.id }}</td>
       <td>{{ enfermedadmaesmaiz.name }}</td>
       <td>{{ enfermedadmaesmaiz.description }}</td>
-      <td>{{ enfermedadmaesmaiz.planta }}</td>
-      <td> <a href= "{% url 'enfermedadmaesmaiz_editar' enfermedadmaesmaiz.id %}"><button class="ui blue button"><i class="pencil icon"></i>Modificar</button></a> <!-- </td>  Modificar -->
-      <!-- <td> --> <a href= "{% url 'enfermedadmaesmaiz_eliminar' enfermedadmaesmaiz.id %}"><button class="ui red button"><i class="trash icon"></i>Eliminar</button></a> </td> <!-- Eliminar -->
+      <td> <a href= "{% url 'enfermedadmaesmaiz_editar' enfermedadmaesmaiz.id %}"><button class="ui button"><i class="pencil icon"></i>Modificar</button></a> <!-- </td>  Modificar -->
+      <!-- <td> --> <a href= "{% url 'enfermedadmaesmaiz_eliminar' enfermedadmaesmaiz.id %}"><button class="ui button"><i class="trash icon"></i>Eliminar</button></a> </td> <!-- Eliminar -->
     </tr>
   </tbody>
   {% endfor %}
