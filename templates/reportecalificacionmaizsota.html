@@ -1,0 +1,39 @@
+{% extends "basesoja.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- <div>
+        <h1><a href="/">It's coming home!</a></h1>
+    </div> -->
+
+<h2 class="ui center aligned icon header">
+  <i class="circular star icon"></i>
+  Ranking de diagnósticos de soja por tallo
+</h2>
+
+<div class="ui container">
+<table class="ui basic table">
+  <thead>
+    <tr>
+      <th>Nro.</th>
+      <th>ID</th>
+      <th>Enfermedad</th>
+      <th>Calificación</th>
+    </tr>
+  </thead>
+  {% for reviewmaiz in reviewmaiz %}
+  <tbody>
+    <tr>
+      <td>{{ reviewmaiz.id }}</td>
+      <td>{{ reviewmaiz.enfermedadId }}</td>
+      <td>{{ reviewmaiz.enfermedadName }}</td>
+      <td>{{ reviewmaiz.stars }}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+
+<br>
+{% endblock %}

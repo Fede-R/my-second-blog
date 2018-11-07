@@ -1,0 +1,40 @@
+{% extends "basesoja.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- <div>
+        <h1><a href="/">It's coming home!</a></h1>
+    </div> -->
+
+<h2 class="ui center aligned icon header">
+  <i class="circular edit icon"></i>
+  Acciones para soja por hoja
+</h2>
+
+<div class="ui container">
+<table class="ui basic table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Enfermedad</th>
+      <th>Tratamiento</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  {% for enfermedadsohomaiz in enfermedadsohomaiz %}
+  <tbody>
+    <tr>
+      <td>{{ enfermedadsohomaiz.id }}</td>
+      <td>{{ enfermedadsohomaiz.name }}</td>
+      <td>{{ enfermedadsohomaiz.description }}</td>
+      <td> <a href= "{% url 'enfermedadsohomaiz_editar' enfermedadsohomaiz.id %}"><button class="ui button"><i class="pencil icon"></i>Modificar</button></a> <!-- </td>  Modificar -->
+      <!-- <td> --> <a href= "{% url 'enfermedadsohomaiz_eliminar' enfermedadsohomaiz.id %}"><button class="ui button"><i class="trash icon"></i>Eliminar</button></a> </td> <!-- Eliminar -->
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+
+<br>
+{% endblock %}

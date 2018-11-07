@@ -1,0 +1,411 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Jarvis">
+
+  <title>AgroEX</title>
+  <link rel="icon" type="image/png" href="/static/images/logo_pink.png"/>
+
+  <!--  Fonts 
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'> 
+  -->
+  <!-- Semantic Core CSS -->
+  <link rel="stylesheet" href="{% static "css/semantic.min.css" %}"/>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static "css/common.css" %}"/>
+
+  <!-- Required JS at top -->
+  <script src="{% static "js/jquery2.2.2.min.js" %}"></script>
+  <script src="{% static "js/semantic.min.js" %}"></script>
+
+  {% block css-files %}
+  {% endblock %}
+</head>
+
+<body>
+  {% block nav-bar %}
+    <!--  Default Navigator Bar -->
+    <div class="ui top fixed menu borderless main nav-bar">
+      <div class="ui container">
+<!--        <a href="/"><img class="nav-img" src="/static/images/logo2_pink.png"></a> -->
+
+
+
+        <br> <h2><a href="/"><i class="green home icon link"></i>  <span style="color:green"> Trigo</span></a></h2>
+
+
+
+        <div id="notification-box">
+<!--          <div id="the-cat-box">
+            <img id="the-cat" src="/static/images/cat.gif"> 
+          </div> -->
+          <div class="ui blue message" id="the-message">Blue</div>
+        </div>
+
+        <div class="right item">
+          <div id="preference-button" class="circular ui icon green button nav-button" style="display:none"> <i class="large leaf icon link"></i> </div> <!-- Preference -->
+          <a id="preference-link" href="/preferences"><button class="circular ui icon green button nav-button"> <i class="large leaf icon link"></i> </button></a> <!-- Preference -->
+          <a href="/about"><button class="circular ui icon green button nav-button"> <i class="large comment icon link"></i> </button></a> <!-- About Us -->
+
+{% if user.is_authenticated %}
+
+          <!-- Botones originales. Funcionaban super bien pero fueron cambiados -->
+
+<!--          <a href="/new"><button class="ui inverted red button nav-button">Nueva enfermedad
+          <i class="large icons">
+            <i class="plus icon link"></i>
+             <i class="corner leaf icon"></i>
+          </i>
+          </button></a>   
+          <a href="/reporte"><button class="ui inverted red button nav-button">Reportes
+          <i class="large icons">
+            <i class="chart bar icon link"></i>
+             <i class="corner comment icon"></i>
+          </i>
+          </button></a>
+          <a href="/reportemaiz"><button class="ui inverted red button nav-button">Reportes Maíz
+          <i class="large icons">
+            <i class="chart bar icon link"></i>
+             <i class="corner leaf icon"></i>
+          </i>
+          </button></a>   
+
+-->       <!-- Fin Botones originales -->
+
+<!-- Inicio Nuevo DROPDOWN -->
+
+          <!-- Segundo boton original de USUARIO EXPERTO. Funcionaban super bien pero fueron cambiados porque se tenía que ampliar -->
+
+<!--        <div class="ui floating labeled icon dropdown green button">
+          <i class="user icon"></i>
+          <span class="text">Experto</span>
+          <div class="menu">
+            <a href="/new"><div class="item">
+              <i class="plus icon"></i>
+              Nueva enfermedad
+            </div></a>
+            <a href="/escritura"><div class="item">
+              <i class="lightbulb icon"></i>
+              Última regla generada
+            </div></a>
+            <div class="divider"></div>
+            <a href="/reportemaiz"><div class="item">
+              <i class="chart bar icon"></i>
+              Reporte de maiz
+            </div></a>
+            <a href="/reporte"><div class="item">
+              <i class="chart bar icon"></i>
+              Reporte de comentarios
+            </div></a>
+            <a href="/reportecalificacionmaiz"><div class="item">
+              <i class="chart bar icon"></i>
+              Reporte de calificaciones
+            </div></a>
+            <div class="divider"></div>          
+            <a href="/acciones"><div class="item">
+              <i class="edit icon"></i>
+              Más acciones
+            </div></a>
+          </div>
+        </div>
+
+-->     <!-- Fin segundo boton original -->
+
+<!-- Fin Nuevo DROPDOWN --> 
+
+
+
+<!-- DROPDOWN 2-->
+
+<div class="ui floating labeled icon dropdown green button">
+          <i class="user icon"></i>
+          <span class="text">Experto</span>
+          <div class="menu">
+            <div class="header">Enriquecer sistema</div>
+
+<!-- Nueva enfermedad de planta -->
+              <div class="item">
+                <i class="dropdown icon"></i>
+                <i class="plus icon"></i>
+                Nueva enfermedad
+
+                <div class="ui left vertical menu">
+
+                    <div class="item">
+                    <i class="dropdown icon"></i>Soja
+
+                        <div class="ui left vertical menu">
+                          <a href="/newsoho"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                          <a href="/newsota"><div class="item"> <span style="font-size: 14px; color:black"> Tallo </span> </div></a>
+                          <a href="/newsora"><div class="item"> <span style="font-size: 14px; color:black"> Raíz </span> </div></a>
+                        </div>
+                    </div>
+
+                    <div class="item"> 
+                    <i class="dropdown icon"></i>Maíz
+
+                        <div class="ui left vertical menu">
+                          <a href="/new"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                          <a href="/newmara"><div class="item"> <span style="font-size: 14px; color:black"> Tallo </span> </div></a>
+                          <a href="/newmaes"><div class="item"> <span style="font-size: 14px; color:black"> Mazorca </span> </div></a>
+                        </div>
+                    </div>
+
+                  <div class="item">
+                  <i class="dropdown icon"></i>Trigo
+
+                      <div class="ui left vertical menu">
+                          <a href="/newtriho"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                          <a href="/newtripla"><div class="item"> <span style="font-size: 14px; color:black"> Plaga </span> </div></a>                          
+                      </div>
+                  </div>
+
+                </div>                
+              </div>
+<!-- Fin nueva enfermedad de planta -->
+
+
+<!-- Ultima regla generada -->
+              <div class="item">
+                <i class="dropdown icon"></i>
+                <i class="lightbulb icon"></i>
+                Última regla generada
+
+                <div class="ui left vertical menu">
+
+                    <div class="item">
+                    <i class="dropdown icon"></i>Soja
+
+                        <div class="ui left vertical menu">
+                          <a href="/escriturasoho"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                          <a href="/escriturasota"><div class="item"> <span style="font-size: 14px; color:black"> Tallo </span> </div></a>
+                          <a href="/escriturasora"><div class="item"> <span style="font-size: 14px; color:black"> Raíz </span> </div></a>
+                        </div>
+                    </div>
+
+                    <div class="item"> 
+                    <i class="dropdown icon"></i>Maíz
+
+                        <div class="ui left vertical menu">
+                          <a href="/escritura"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                          <a href="/escrituramara"><div class="item"> <span style="font-size: 14px; color:black"> Tallo </span> </div></a>
+                          <a href="/escrituramaes"><div class="item"> <span style="font-size: 14px; color:black"> Mazorca </span> </div></a>
+                        </div>
+                    </div>
+
+                  <div class="item">
+                  <i class="dropdown icon"></i>Trigo
+
+                      <div class="ui left vertical menu">
+                        <a href="/escrituratriho"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                        <a href="/escrituratripla"><div class="item"> <span style="font-size: 14px; color:black"> Plaga </span> </div></a>
+                      </div>
+                  </div>
+
+                </div>                
+              </div>
+<!-- Fin ultima regla generada -->
+            
+            <div class="divider"></div>
+            <div class="header">Reportes</div>
+
+<!-- Reporte de enfermedades -->  
+            <div class="item">
+                <i class="dropdown icon"></i>
+                <i class="chart bar icon"></i>
+                Enfermedades
+
+                <div class="ui left vertical menu">
+
+                    <div class="item">
+                    <i class="dropdown icon"></i>Soja
+
+                        <div class="ui left vertical menu">
+                          <a href="/reportesohomaiz"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                          <a href="/reportesotamaiz"><div class="item"> <span style="font-size: 14px; color:black"> Tallo </span> </div></a>
+                          <a href="/reportesoramaiz"><div class="item"> <span style="font-size: 14px; color:black"> Raíz </span> </div></a>
+                        </div>
+                    </div>
+
+                    <div class="item"> 
+                    <i class="dropdown icon"></i>Maíz
+
+                        <div class="ui left vertical menu">
+                          <a href="/reportemaiz"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                          <a href="/reportemaramaiz"><div class="item"> <span style="font-size: 14px; color:black"> Tallo </span> </div></a>
+                          <a href="/reportemaesmaiz"><div class="item"> <span style="font-size: 14px; color:black"> Mazorca </span> </div></a>
+                        </div>
+                    </div>
+
+                  <div class="item">
+                  <i class="dropdown icon"></i>Trigo
+
+                      <div class="ui left vertical menu">
+                        <a href="/reportetrihomaiz"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                        <a href="/reportetriplamaiz"><div class="item"> <span style="font-size: 14px; color:black"> Plaga </span> </div></a>  
+                      </div>
+                  </div>
+
+                </div>                
+              </div>
+<!-- Fin reporte de enfermedades -->
+
+<!-- Reporte de calificaciones -->
+              <div class="item">
+                <i class="dropdown icon"></i>
+                <i class="chart bar icon"></i>
+                Ranking
+
+                <div class="ui left vertical menu">
+
+                    <div class="item">
+                    <i class="dropdown icon"></i>Soja
+
+                        <div class="ui left vertical menu">
+                          <a href="/reportecalificacionmaizsoho"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                          <a href="/reportecalificacionmaizsota"><div class="item"> <span style="font-size: 14px; color:black"> Tallo </span> </div></a>
+                          <a href="/reportecalificacionmaizsora"><div class="item"> <span style="font-size: 14px; color:black"> Raíz </span> </div></a>
+                        </div>
+                    </div>
+
+                    <div class="item"> 
+                    <i class="dropdown icon"></i>Maíz
+
+                        <div class="ui left vertical menu">
+                          <a href="/reportecalificacionmaiz"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                          <a href="/reportecalificacionmaizmara"><div class="item"> <span style="font-size: 14px; color:black"> Tallo </span> </div></a>
+                          <a href="/reportecalificacionmaizmaes"><div class="item"> <span style="font-size: 14px; color:black"> Mazorca </span> </div></a>
+                        </div>
+                    </div>
+
+                  <div class="item">
+                  <i class="dropdown icon"></i>Trigo
+
+                      <div class="ui left vertical menu">
+                        <a href="/reportecalificacionmaiztriho"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                        <a href="/reportecalificacionmaiztripla"><div class="item"> <span style="font-size: 14px; color:black"> Plaga </span> </div></a>
+                      </div>
+                  </div>
+
+                </div>                
+              </div>
+<!-- Fin reporte de calificaciones -->
+ 
+<!-- Reporte de comentarios -->            
+            <a href="/reporte"><div class="item">
+              <i class="chart bar icon"></i>
+              Comentarios
+            </div></a>
+<!-- Fin reporte de comentarios -->  
+
+            <div class="divider"></div>
+            <div class="header">Más acciones</div>
+
+<!-- Acciones -->
+            <div class="item">
+                <i class="dropdown icon"></i>
+                <i class="edit icon"></i>
+                Modificar y eliminar
+
+                <div class="ui left vertical menu">
+
+                    <div class="item">
+                    <i class="dropdown icon"></i>Soja
+
+                        <div class="ui left vertical menu">
+                          <a href="/accionessoho"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                          <a href="/accionessota"><div class="item"> <span style="font-size: 14px; color:black"> Tallo </span> </div></a>
+                          <a href="/accionessora"><div class="item"> <span style="font-size: 14px; color:black"> Raíz </span> </div></a>
+                        </div>
+                    </div>
+
+                    <div class="item"> 
+                    <i class="dropdown icon"></i>Maíz
+
+                        <div class="ui left vertical menu">
+                          <a href="/acciones"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                          <a href="/accionesmara"><div class="item"> <span style="font-size: 14px; color:black"> Tallo </span> </div></a>
+                          <a href="/accionesmaes"><div class="item"> <span style="font-size: 14px; color:black"> Mazorca </span> </div></a>
+                        </div>
+                    </div>
+
+                  <div class="item">
+                  <i class="dropdown icon"></i>Trigo
+
+                      <div class="ui left vertical menu">
+                        <a href="/accionestriho"><div class="item"> <span style="font-size: 14px; color:black"> Hoja </span> </div></a>
+                        <a href="/accionestripla"><div class="item"> <span style="font-size: 14px; color:black"> Plaga </span> </div></a>
+                      </div>
+                  </div>
+
+                </div>                
+              </div>              
+<!-- Fin acciones -->
+
+          </div>
+        </div>
+
+<!-- FIN DROPDOWN 2-->
+
+{% if user.is_authenticated %}
+
+      
+    <div class="item">  
+        <p class="top-menu" style="text-align:center;"> <b> Hola {{ user.username }} <br> <small>(<a href="{% url 'logout' %}">Log out</a>)</small> </b> </p>
+        
+    </div>
+      
+
+{% endif %}
+
+{% endif %}
+                            
+
+
+        </div>
+      </div>
+    </div>
+<br>
+
+
+
+  {% endblock %}
+
+  {% block content %}
+    <!--  Main content -->
+  {% endblock %}
+
+  {% block footer %}
+    <div class="container">
+      <!-- Default Footer -->
+      <ftooter>
+        <!-- <div class="row">
+          <div style="text-align:center">
+            <p>&copy; Designed by Jarvis</p>
+          </div>
+        </div> -->
+      </footer>
+    </div>
+  {% endblock %}
+
+
+  <!-- Required Scripts At Bottom -->
+  <script src="{% static "js/common.js" %}"></script>
+  <script>
+    $('.ui.dropdown').dropdown();
+    $('.ui.radio').checkbox();
+  </script>
+
+  {% block js-files %}
+    <!-- Additional Scripts -->
+  {% endblock %}
+</body>
+
+</html>

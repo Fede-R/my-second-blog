@@ -1,0 +1,304 @@
+{% extends "basesoja.html" %}
+{% load staticfiles %}
+
+{% block css-files %}
+  <link rel="stylesheet" href="{% static "css/preferencessora.css" %}"/>
+{% endblock %}
+
+{% block content %}
+<!-- FORM -->
+<div id="outer-box" style="display:none;">
+<div id="preference-box" class="ui existing segment container grid">
+  <div class="two wide column"></div>
+  <form id="form-preference" class="ui form twelve wide column"> {% csrf_token %}
+
+    <h2 class="ui header">
+      <i class="flask icon"></i>
+      <div class="content">
+        Soja por raíz
+      </div>
+    </h2>
+
+    <h4 class="ui dividing header">Por favor, selecciona la planta y sus síntomas</h4>
+
+    <!-- Dropdown planta -->
+    <div class="inline fields" style="display:none;"> <!-- NUEVO DISPLAY NONE 1 -->
+      <label class="four wide field">Elige la planta</label>
+      <select class="ui search dropdown" name="planta">
+        <option value="soja">Soja</option>
+      </select>
+    </div>
+
+    <!-- sintoma-aa -->
+    <div class="inline fields">
+      <label class="four wide field">¿Las nervaduras estan verde?</label>  
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-aa" tabindex="0" value="TRUE" class="hidden">
+          <label>Si</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-aa" tabindex="0" value="FALSE" class="hidden">
+          <label>No</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- sintoma-bb -->
+    <div class="inline fields">
+      <label class="four wide field">¿Que tipo de lesiones tienen las hojas?</label> 
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="necrosis" class="hidden">
+          <label>Algunas partes muertas</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="decoloracion" class="hidden">
+          <label>Decoloracion</label> 
+        </div>
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="no lesion" class="hidden">
+          <label>Ninguna</label> 
+        </div>
+      </div>
+<!--      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="marron" class="hidden">
+          <label>Marron</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="no mancha" class="hidden">
+          <label>No mancha</label> 
+        </div>
+      </div> -->
+    </div>
+
+    <!-- sintoma-cc -->
+    <div class="inline fields">
+      <label class="four wide field">¿La medula tiene coloracion marron?</label> 
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-cc" tabindex="0" value="si coloracion medula" class="hidden">
+          <label>Si</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-cc" tabindex="0" value="no coloracion medula" class="hidden">
+          <label>No</label> 
+        </div>
+      </div>
+<!--      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-cc" tabindex="0" value="ninguna lesion" class="hidden">
+          <label>Ninguna</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-cc" tabindex="0" value="no forma mancha" class="hidden">
+          <label>No hay manchas</label> 
+        </div>
+      </div> -->
+    </div>
+
+    <!-- sintoma-ee -->
+<!--    <div class="inline fields">
+      <label class="four wide field">¿Hay marchitez en la parte aérea?</label> 
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-ee" tabindex="0" value="si marchitez" class="hidden">
+          <label>Sí</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-ee" tabindex="0" value="no marchitez" class="hidden">
+          <label>No</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-ee" tabindex="0" value="dispersa" class="hidden">
+          <label>Dispersas</label> 
+        </div>
+      </div> 
+    </div> -->
+
+    <!-- sintoma-dd -->
+    <div class="inline fields">
+      <label class="four wide field">¿Que coloracion tiene la raiz?</label> 
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-dd" tabindex="0" value="raiz gris" class="hidden">
+          <label>Gris</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-dd" tabindex="0" value="raiz negra" class="hidden">
+          <label>Negra</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-dd" tabindex="0" value="ningun color raiz" class="hidden">
+          <label>Ninguna</label> 
+        </div>
+      </div>
+    </div>
+
+    <!-- Errors -->
+    <div class="ui error message"></div>
+
+    <!-- Submit button -->
+    <div class="inline fields"> 
+      <div id="submit-button" class="ui submit positive button">Analizar planta</div>
+    </div>
+
+  </form>
+</div>
+</div>
+
+
+<!-- CARDS -->
+<div id="enfermedades-box" class="ui container">
+  <div id="enfermedad-cards" class="ui four stackable link cards">
+  </div>
+</div>
+
+
+<!-- MODAL -->
+<div id="modal-card-detail" class="ui large modal">
+  <!-- Thanks message -->
+  <div id="modal-message" class="ui green message">Thank you :)</div>
+
+  <!-- Suggestions -->
+  <span id="suggestion-box">
+  </span>
+
+  <i class="close icon"></i>
+
+  <!-- Header -->
+  <div id="modal-header" class="ui content">
+    <div class="ui grid">
+      <div class="ui sixteen wide column">
+        <h4>Su planta padece de:</h4>
+        <h2 id="detail-name" class="ui header">Name of the dish</h2>
+        <div id="detail-tags" style="display:none"> <!-- NUEVO DISPLAY NONE 3 -->
+          <a class="ui tag label">New</a>
+          <a class="ui tag label">New</a>
+          <a class="ui tag label">New</a>
+        </div>
+
+<!--        <p id="detail-rating" class="ui header">Rating: </p> -->
+        <div class="ui right aligned">
+          <i id="header-star-1" class="empty star icon review-star"></i>
+          <i id="header-star-2" class="empty star icon review-star"></i>
+          <i id="header-star-3" class="empty star icon review-star"></i>
+          <i id="header-star-4" class="empty star icon review-star"></i>
+          <i id="header-star-5" class="empty star icon review-star"></i>
+        </div>
+
+
+
+      </div>
+<!--      <div class="ui right aligned four wide column">
+        
+      </div> -->
+    </div>
+    <div class="ui clearing divider"></div>
+  </div>
+
+  <!-- Main content -->
+  <div id="modal-content" class="ui content">
+    <div class="ui grid">
+
+      <!-- Images -->
+      <div class="sixteen wide column" id="modal-images">
+        <img class="arrows" id="right-arr" src="/static/images/arrow-right.png">
+        <img class="arrows" id="left-arr" src="/static/images/arrow-left.png">
+
+        <span id="modal-image-tabs">
+          <div class="ui bottom attached tab active" data-tab="first">
+            <img src="/static/images/dishessora/17_1_square.jpeg" style="width:100%"/>
+          </div>
+        </spans>
+
+      </div>
+
+      <!-- Description -->
+        <div class="comments">
+          <div class="ui dividing header">Tratamiento</div>
+          <p id="detail-description">This is a text.</p>
+        </div>
+
+        <!-- Comments/Reviews -->
+        <div class="ui comments">
+          <h3 class="ui dividing header">Calificar&nbsp;&nbsp;&nbsp;&nbsp;<i id="review-new-button" class="check icon link"></i></h3>
+
+          <form id="review-form" class="ui form">  {% csrf_token %}
+            <div class="field">
+              <div class="two fields">
+                <div class="field" style="display:none"> <!-- NUEVO DISPLAY NONE 2 -->
+                  <input type="text" name="review-name" placeholder="Your Name">
+                </div>
+                <div class="field">
+                  <i id="star-1" class="empty star icon link review-star" onclick="clickStar(1)"></i>
+                  <i id="star-2" class="empty star icon link review-star" onclick="clickStar(2)"></i>
+                  <i id="star-3" class="empty star icon link review-star" onclick="clickStar(3)"></i>
+                  <i id="star-4" class="empty star icon link review-star" onclick="clickStar(4)"></i>
+                  <i id="star-5" class="empty star icon link review-star" onclick="clickStar(5)"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Comment -->
+            <div class="field" style="display:none">
+              <input type="text" name="review-stars" style="display:none">
+              <textarea id="review-comment" rows="3" placeholder="Your comment here ..."></textarea>
+            </div>
+
+            <!-- Errors -->
+            <div class="ui error message"></div>
+
+            <!-- Submit button -->
+            <div class="inline fields">
+              <div class="ui submit positive button"><!-- <i class="icon edit"></i> --> Calificar</div>
+            </div>
+          </form>
+
+          <!-- List of comments -->
+          <!--<span id="comments">
+          </span>-->
+
+        </div>
+
+
+      <!-- Right Things -->
+<!--      <div class="eight wide column" id="review-maincontent" >
+
+        
+      </div> -->
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+
+{% block js-files %}
+  <script src="{% static "js/preferencessora.js" %}"></script>
+  <script>
+    $(window).load(function() {
+      $('.menu .item')
+    .tab();
+    });
+  </script>
+{% endblock %}

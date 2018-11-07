@@ -1,0 +1,46 @@
+{% extends "basesoja.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- <div>
+        <h1><a href="/">It's coming home!</a></h1>
+    </div> -->
+
+<!-- <h2 class="ui center aligned icon header">
+  <i class="circular leaf icon"></i>
+  Reporte del maíz por raiz
+</h2>
+-->
+
+<div class="ui container">
+
+<h2 class="ui header">
+  <img class="ui image" src="/static/images/sojatab.jpg">
+  <div class="content">
+    Enfermedades de la soja por tallo
+  </div>
+</h2>
+
+<table class="ui basic table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Enfermedad</th>
+      <th>Tratamiento</th>
+    </tr>
+  </thead>
+  {% for enfermedadsotamaiz in enfermedadsotamaiz %}
+  <tbody>
+    <tr>
+      <td>{{ enfermedadsotamaiz.id }}</td>
+      <td>{{ enfermedadsotamaiz.name }}</td>
+      <td>{{ enfermedadsotamaiz.description }}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+
+<br>
+{% endblock %}

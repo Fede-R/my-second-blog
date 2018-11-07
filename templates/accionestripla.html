@@ -1,0 +1,40 @@
+{% extends "basetrigo.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- <div>
+        <h1><a href="/">It's coming home!</a></h1>
+    </div> -->
+
+<h2 class="ui center aligned icon header">
+  <i class="circular edit icon"></i>
+  Acciones para trigo por plaga
+</h2>
+
+<div class="ui container">
+<table class="ui basic table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Enfermedad</th>
+      <th>Tratamiento</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  {% for enfermedadtriplamaiz in enfermedadtriplamaiz %}
+  <tbody>
+    <tr>
+      <td>{{ enfermedadtriplamaiz.id }}</td>
+      <td>{{ enfermedadtriplamaiz.name }}</td>
+      <td>{{ enfermedadtriplamaiz.description }}</td>
+      <td> <a href= "{% url 'enfermedadtriplamaiz_editar' enfermedadtriplamaiz.id %}"><button class="ui button"><i class="pencil icon"></i>Modificar</button></a> <!-- </td>  Modificar -->
+      <!-- <td> --> <a href= "{% url 'enfermedadtriplamaiz_eliminar' enfermedadtriplamaiz.id %}"><button class="ui button"><i class="trash icon"></i>Eliminar</button></a> </td> <!-- Eliminar -->
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+
+<br>
+{% endblock %}

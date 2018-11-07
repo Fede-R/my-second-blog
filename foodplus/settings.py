@@ -110,5 +110,10 @@ CLIPS_DIR = os.path.join(BASE_DIR, 'clips')
 DISH_IMAGE_DIR = os.path.join(BASE_DIR, 'static/images/dishes')
 DISHMAES_IMAGE_DIR = os.path.join(BASE_DIR, 'static/images/dishesmaes')
 DISHMARA_IMAGE_DIR = os.path.join(BASE_DIR, 'static/images/dishesmara')
+DISHSOHO_IMAGE_DIR = os.path.join(BASE_DIR, 'static/images/dishessoho')
+DISHSOTA_IMAGE_DIR = os.path.join(BASE_DIR, 'static/images/dishessota')
+DISHSORA_IMAGE_DIR = os.path.join(BASE_DIR, 'static/images/dishessora')
+DISHTRIHO_IMAGE_DIR = os.path.join(BASE_DIR, 'static/images/dishestriho')
+DISHTRIPLA_IMAGE_DIR = os.path.join(BASE_DIR, 'static/images/dishestripla')
 
 LOGIN_REDIRECT_URL = '/'

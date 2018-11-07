@@ -1,0 +1,86 @@
+{% extends "basetrigo.html" %}
+{% load staticfiles %}
+
+{% block css-files %}
+  <link rel="stylesheet" href="{% static "css/common.css" %}"/>
+  <link rel="stylesheet" href="{% static "css/preferences.css" %}"/>
+{% endblock %}
+
+{% block content %}
+<!-- FORM -->
+<div id="outer-box" style="display:none;"> <!-- 1 Se le eliminó el style="display:none;" -->
+<div id="preference-box" class="ui existing segment container grid">
+  <div class="two wide column"></div>
+  <form method="post" id="form-escritura" class="ui form twelve wide column" action="{% url 'escrituratriho' %}"> 
+  	{% csrf_token %}
+
+    <h2 class="ui header">
+      <i class="lightbulb icon"></i>
+      <div class="content">
+        Última regla generada de trigo por hoja
+      </div>
+    </h2>
+
+    <div class="ui divider"></div>
+
+    <h4 id="supertitulo" class="ui center aligned header">Nombre: {{ enfermedadtrihomaiz.name }} </h4>
+  
+    (enfermedad (ID {{ enfermedadtrihomaiz.id }}) (name "{{ enfermedadtrihomaiz.name }}") (planta "{{ enfermedadtrihomaiz.planta }}") (sintoma-aa "{{ enfermedadtrihomaiz.sintomaAA }}") (sintoma-bb "{{ enfermedadtrihomaiz.sintomaBB }}") (sintoma-cc "{{ enfermedadtrihomaiz.sintomaCC }}") (sintoma-dd "{{ enfermedadtrihomaiz.sintomaDD }}") (sintoma-ee "{{ enfermedadtrihomaiz.sintomaEE }}") (stars -1))
+
+    <div class="ui divider"></div>
+    <br>
+    <div class="inline fields">
+  <!--    <label class="four wide field">Elija la planta</label> -->
+
+      <div class="field" style="display:none;">
+        <label>Elija la planta</label>
+        <input name="plant" id="plant" placeholder="First Name" type="text">
+      </div>
+
+
+    </div>
+
+ 
+    <!-- Errors -->
+    <div class="ui error message"></div>
+
+    <!-- Submit button -->
+    <div class="inline fields">
+
+<!--      <input type="submit" class="ui submit teal button" value="SUBMIT">
+
+      <div id="submit-button" class="ui submit teal button">ESCRIBIR</div> -->
+
+	<br>
+        <input type="submit" value="OK" />
+        
+    
+    </div>
+
+  </form>
+ 
+</div>
+
+<div id="notification-box">
+          <div id="the-cat-box">
+<!--            <img id="the-cat" src="/static/images/cat.gif"> -->
+          </div>
+          <div class="ui blue message" id="the-message">Blue</div>
+        </div>
+
+</div>
+
+
+{% endblock %}
+
+
+{% block js-files %}
+<script src="{% static "js/escrituratriho.js" %}"></script>
+<!-- <script src="{% static "js/common.js" %}"></script>
+  <script>
+    $(window).load(function() {
+      $('.menu .item')
+    .tab();
+    });
+  </script> -->
+{% endblock %}

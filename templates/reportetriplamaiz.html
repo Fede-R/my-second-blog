@@ -1,0 +1,46 @@
+{% extends "basetrigo.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- <div>
+        <h1><a href="/">It's coming home!</a></h1>
+    </div> -->
+
+<!-- <h2 class="ui center aligned icon header">
+  <i class="circular leaf icon"></i>
+  Reporte del maíz por mazorca
+</h2>
+-->
+
+<div class="ui container">
+
+<h2 class="ui header">
+  <img class="ui image" src="/static/images/trigotab.jpg">
+  <div class="content">
+    Enfermedades del trigo por plaga
+  </div>
+</h2>
+
+<table class="ui basic table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Enfermedad</th>
+      <th>Tratamiento</th>
+    </tr>
+  </thead>
+  {% for enfermedadtriplamaiz in enfermedadtriplamaiz %}
+  <tbody>
+    <tr>
+      <td>{{ enfermedadtriplamaiz.id }}</td>
+      <td>{{ enfermedadtriplamaiz.name }}</td>
+      <td>{{ enfermedadtriplamaiz.description }}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+
+<br>
+{% endblock %}

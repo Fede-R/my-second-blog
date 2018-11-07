@@ -1,0 +1,198 @@
+{% extends "basetrigo.html" %}
+{% load staticfiles %}
+
+{% block css-files %}
+    <link rel="stylesheet" href="{% static "css/newsoho.css" %}"/>
+{% endblock %}
+
+{% block content %}
+<div id="preference-box" class="ui segment container grid"  style="display:none;">
+  <div class="two wide column"></div>
+  <form id="form-nuevo-enfermedad" class="ui form twelve wide column"> {% csrf_token %}
+
+    <h2 class="ui header">
+      <i class="plus icon"></i>
+      <div class="content">
+        Agregar enfermedad de trigo por plaga
+      </div>
+    </h2>
+
+    <h4 class="ui dividing header">Por favor, ingrese la nueva enfermedad de la planta y sus síntomas</h4>
+
+    <!-- dish name -->
+    <div class="inline fields">
+      <label class="four wide field">Nombre de la enfermedad</label>
+      <div class="six wide field">
+        <input type="text" name="enfermedad-name" placeholder="Nueva enfermedad">
+      </div>
+    </div>
+
+    <!-- Dropdown planta -->
+    <div class="inline fields" style="display:none;">
+      <label class="four wide field">Elige la planta</label>
+      <select class="ui search dropdown" name="planta">
+  <!--  <option value="">Select Cuisine</option>
+        <option value="soja">Soja</option> -->
+        <option value="trigo">Trigo</option> 
+   <!-- <option value="trigo">Trigo</option> -->
+      </select>
+    </div>
+
+    <!-- sintoma-aa -->
+    <div class="inline fields">
+      <label class="four wide field">¿El insecto tiene alas?</label>  
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-aa" tabindex="0" value="TRUE" class="hidden">
+          <label>Sí</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-aa" tabindex="0" value="FALSE" class="hidden">
+          <label>No</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- sintoma-bb -->
+    <div class="inline fields">
+      <label class="four wide field">¿De qué color es?</label> 
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="verde" class="hidden">
+          <label>Verde</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="verde oscuro azulado" class="hidden">
+          <label>Verde oscuro-azulado</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="verde olivo" class="hidden">
+          <label>Verde olivo</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="celeste con mancha" class="hidden">
+          <label>Celeste con manchas azules</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="amarillo verdoso" class="hidden">
+          <label>Amarillo verdoso</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-bb" tabindex="0" value="otro" class="hidden">
+          <label>Otro</label> 
+        </div>
+      </div>
+    </div>
+
+    <!-- sintoma-cc -->
+    <div class="inline fields">
+      <label class="four wide field">¿Tiene forma globosa?</label> 
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-cc" tabindex="0" value="si globosa" class="hidden">
+          <label>Si</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-cc" tabindex="0" value="no globosa" class="hidden">
+          <label>No</label> 
+        </div>
+      </div>           
+    </div>
+
+    <!-- sintoma-ee -->
+    <div class="inline fields">
+      <label class="four wide field">¿Dónde apareció?</label> 
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-ee" tabindex="0" value="en hoja" class="hidden">
+          <label>En las hojas</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-ee" tabindex="0" value="en raiz" class="hidden">
+          <label>En las raíces</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-ee" tabindex="0" value="en hoja y tallo" class="hidden">
+          <label>En las hojas y el tallo</label> 
+        </div>
+      </div> 
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-ee" tabindex="0" value="en otra parte" class="hidden">
+          <label>En otra parte</label> 
+        </div>
+      </div>     
+    </div>
+
+    <!-- sintoma-dd -->
+    <div class="inline fields">
+      <label class="four wide field">¿Tiene una linea en su dorso?</label> 
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-dd" tabindex="0" value="si linea" class="hidden">
+          <label>Sí</label> 
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui radio checkbox">
+          <input type="radio" name="sintoma-dd" tabindex="0" value="no linea" class="hidden">
+          <label>No</label> 
+        </div>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="inline fields">
+      <label class="four wide field">Tratamiento a seguir</label>
+      <div class="eleven wide field"><textarea rows="3" id="description"></textarea></div>
+    </div>
+
+    <!-- upload image button -->
+    <div class="inline fields">
+      <label class="four wide field">Agregar una imagen de la planta infectada</label>
+      <div class="ui icon big button" id="file-upload">
+        <i class="upload icon"></i>
+      </div>
+      <input type="file" id="hidden-file-upload" style="display: none">
+    </div>
+
+    <!-- output to preview images -->
+    <div class="inline fields">
+      <div class="four wide field"></div>
+      <div id="list" class="inline fields"></div>
+      <input id="images" type="text" name="images" style="display: none">
+    </div>
+
+    <!-- Errors -->
+    <div class="ui error message"></div>
+
+    <!-- Submit button -->
+    <div class="inline fields">
+      <div id="submit-button" class="ui submit positive button">Agregar</div>
+    </div>
+
+  </form>
+</div>
+{% endblock %}
+
+{% block js-files %}
+  <script src="{% static "js/newtripla.js" %}"></script>
+{% endblock %}
